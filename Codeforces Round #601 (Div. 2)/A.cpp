@@ -15,6 +15,19 @@ int main()
     IOS
     ll test;
     cin>>test;
+    while(test--)
+    {
+        ll a, b;
+        cin>>a>>b;
+        ll dis=abs(a-b);
+        ll ans=dis/5;
+        dis=dis%5;
+        if(dis==1)ans++;
+        else if(dis==2)ans++;
+        else if(dis==3)ans+=2;
+        else if(dis==4)ans+=2;
+        cout<<ans<<endl;
+    }
 
 
 
@@ -48,31 +61,4 @@ ll mod_string_number(string str, ll mod_num)
     for (ll i = 0; i < str.length(); i++)
          res = (res*10 + (ll)str[i] - '0') %mod_num;
     return res;
-}
-#include <bits/stdc++.h>
-#define ll long long int
-#define pb push_back
-#define IOS ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
-#define pi acos(-1)
-#define N 100050
-#define mod 1000000007
-using namespace std;
-ll super_max=9000000000000000000;
-ll f_num=0;
-ll poww(ll base, ll po )
-{
-  ll ans=1;
-  for(ll j=1; j<=po; j++)ans*=base;
-  return ans;
-}
-
-int main()
-{
-    IOS
-    ll test;
-    cin>>test;
-
-
-
-    return 0;
 }

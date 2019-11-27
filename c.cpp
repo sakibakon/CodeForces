@@ -15,12 +15,9 @@ int main()
     IOS
     ll test;
     cin>>test;
+    while(test--){
 
-
-
-
-
-
+    }
     return 0;
 }
 

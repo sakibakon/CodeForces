@@ -12,16 +12,36 @@ ll big_mod(ll b, ll p, ll m); ///return (b^p)%m;
 ll mod_string_number(string str, ll mod_num); ///return str%mod_num;
 void fun()
 {
-
+    ll n;
+    cin>>n;
+    vector<ll>arr, arr1;
+    for(ll i=0; i<n; i++){
+        ll a, b;
+        cin>>a>>b;
+        arr.push_back(a);
+        arr1.push_back(b);
+    }
+    sort(arr.begin(), arr.end());
+    sort(arr1.begin(), arr1.end());
+    cout<<max(arr[arr.size()-1]-arr1[0], (ll)0)<<endl;
     return;
+
 }
 int main()
 {
     IOS
-    ll test=1;
+    ll test;
     cin>>test;
-   //cout<<test<<endl;
-    while(test--)fun();
+    while(test--){
+        fun();
+    }
+
+
+
+
+
+
+
     return 0;
 }
 

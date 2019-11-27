@@ -12,16 +12,48 @@ ll big_mod(ll b, ll p, ll m); ///return (b^p)%m;
 ll mod_string_number(string str, ll mod_num); ///return str%mod_num;
 void fun()
 {
-
+    ll n, q=0;
+    cin>>n;
+    bool flg[n+5];
+    ll arr[n];
+    memset(flg, false, sizeof flg );
+    for(ll i=0; i<n; i++)cin>>arr[i];
+    ll mx=arr[0], po=1;
+    flg[arr[0] ]=true;
+    vector<ll>ans;
+    ans.push_back(arr[0]);
+    for(ll i=1; i<n; i++){
+        if(arr[i]>mx){ ans.push_back(arr[i]); mx=arr[i]; flg[arr[i]]=true; }
+        else{
+            while(flg[po]==true)po++;
+            if(po>arr[i]){
+                cout<<-1<<endl;
+                return;
+            }
+            ans.push_back(po);
+            flg[po]=true;
+        }
+    }
+    for(ll i=0; i<ans.size(); i++)cout<<ans[i]<<" ";
+    cout<<endl;
     return;
+
+
 }
 int main()
 {
     IOS
-    ll test=1;
+    ll test;
     cin>>test;
-   //cout<<test<<endl;
-    while(test--)fun();
+    while(test--){
+            fun();
+    }
+
+
+
+
+
+
     return 0;
 }
 

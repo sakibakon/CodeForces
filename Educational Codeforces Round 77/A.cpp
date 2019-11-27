@@ -10,18 +10,35 @@ ll super_max=9000000000000000000;
 ll poww(ll base, ll power_number );///return (base ^ power_number);
 ll big_mod(ll b, ll p, ll m); ///return (b^p)%m;
 ll mod_string_number(string str, ll mod_num); ///return str%mod_num;
-void fun()
-{
-
-    return;
-}
 int main()
 {
     IOS
-    ll test=1;
+    ll test;
     cin>>test;
-   //cout<<test<<endl;
-    while(test--)fun();
+    while(test--){
+        ll r, s;
+        cin>>r>>s;
+        if(r>=s){
+            cout<<s<<endl;
+            continue;
+        }
+        ll ans=s/r;
+        ll md=s%r;
+        ll an1=ans+1;
+        an1*=an1;
+        ans=ans*ans;
+        ans=ans*(r-md);
+        ans+=an1*md;
+        cout<<ans<<endl;
+
+
+    }
+
+
+
+
+
+
     return 0;
 }
 

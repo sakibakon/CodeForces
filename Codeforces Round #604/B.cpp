@@ -16,6 +16,23 @@ int main()
     ll test;
     cin>>test;
     while(test--){
+        ll n;
+        cin>>n;
+        ll arr[n];
+        for(ll i=0; i<n; i++)cin>>arr[i];
+        ll l=0, r=n-1;
+        ll po=0, co=n;
+        vector<ll>ans;
+        for(ll i=0; i<n; i++){
+            while(arr[l]>co && l< n)l++;
+            while(arr[r]>co && r>0)r--;
+            //cout<<r-l<<endl;
+            if(l<=r && r-l==co-1){ ans.push_back((ll)1); }
+            else { ans.push_back((ll)0); }
+            co--;
+        }
+        for(ll i=n-1; i>=0; i--)cout<<ans[i];
+        cout<<endl;
 
     }
     return 0;

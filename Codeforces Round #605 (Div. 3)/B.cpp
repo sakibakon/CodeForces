@@ -1,11 +1,3 @@
-/*==============================================*\
-ID     : sakibakon
-Name   : Md. Abu Sakib
-Study  : CSTE, NSTU
-Address: Gazipur, Dhaka, Bangladesh
-Mail   : sakibakon1@gmail.com
-FB     : Solaiman Rizbi Sakib
-\*===============================================*/
 #include <bits/stdc++.h>
 #define ll long long int
 #define pb push_back
@@ -20,15 +12,35 @@ ll big_mod(ll b, ll p, ll m); ///return (b^p)%m;
 ll mod_string_number(string str, ll mod_num); ///return str%mod_num;
 void fun()
 {
+    ll l=0, r=0, u=0, d=0;
+    string s;
+    cin>>s;
+    for(ll i=0; i<s.size(); i++){
+        if(s[i]=='U')u++;
+        if(s[i]=='D')d++;
+        if(s[i]=='L')l++;
+        if(s[i]=='R')r++;
+    }
+    u=min(u, d);
+    l=min(l,r);
+    if(u==0 && l>0){cout<<2<<endl; cout<<"LR"<<endl; }
+    else if(l==0 && u>0){ cout<<2<<endl; cout<<"UD"<<endl; }
+    else if(l==0 && u==0)cout<<0<<endl;
+    else{
+        cout<<(2*l)+(2*u)<<endl;
+        for(ll i=0; i<u; i++)cout<<"U";
+        for(ll i=0; i<l; i++)cout<<"R";
+        for(ll i=0; i<u; i++)cout<<"D";
+        for(ll i=0; i<l; i++)cout<<"L";
+        cout<<endl;
+    }
 
-    return;
 }
 int main()
 {
     IOS
-    ll test=1;
+    ll test;
     cin>>test;
-   //cout<<test<<endl;
     while(test--)fun();
     return 0;
 }

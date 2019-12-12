@@ -1,11 +1,3 @@
-/*==============================================*\
-ID     : sakibakon
-Name   : Md. Abu Sakib
-Study  : CSTE, NSTU
-Address: Gazipur, Dhaka, Bangladesh
-Mail   : sakibakon1@gmail.com
-FB     : Solaiman Rizbi Sakib
-\*===============================================*/
 #include <bits/stdc++.h>
 #define ll long long int
 #define pb push_back
@@ -20,15 +12,31 @@ ll big_mod(ll b, ll p, ll m); ///return (b^p)%m;
 ll mod_string_number(string str, ll mod_num); ///return str%mod_num;
 void fun()
 {
+    ll n, ans=0;
+    ll arr[3];
+    for(ll i=0; i<3; i++)cin>>arr[i];
+    sort(arr, arr+3);
+    if(arr[0]==arr[1] && arr[0]==arr[2]){
+        cout<<0<<endl;
+        return;
+    }
+    else if(arr[0]==arr[1]){
+            arr[0]++; arr[1]++;
+            if(arr[0]<arr[2])arr[2]--;
+    }
+    else if(arr[2]==arr[1]){
+            arr[1]--; arr[2]--;
+            if(arr[0]<arr[1])arr[0]++;
+    }
+    else{ arr[0]++; arr[2]--; }
+    cout<<abs(arr[0]-arr[1])+abs(arr[0]-arr[2])+abs(arr[1]-arr[2])<<endl;
 
-    return;
 }
 int main()
 {
     IOS
-    ll test=1;
+    ll test;
     cin>>test;
-   //cout<<test<<endl;
     while(test--)fun();
     return 0;
 }

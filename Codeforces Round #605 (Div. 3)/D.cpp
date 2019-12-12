@@ -1,11 +1,3 @@
-/*==============================================*\
-ID     : sakibakon
-Name   : Md. Abu Sakib
-Study  : CSTE, NSTU
-Address: Gazipur, Dhaka, Bangladesh
-Mail   : sakibakon1@gmail.com
-FB     : Solaiman Rizbi Sakib
-\*===============================================*/
 #include <bits/stdc++.h>
 #define ll long long int
 #define pb push_back
@@ -20,15 +12,35 @@ ll big_mod(ll b, ll p, ll m); ///return (b^p)%m;
 ll mod_string_number(string str, ll mod_num); ///return str%mod_num;
 void fun()
 {
-
-    return;
+    ll n, ans=0;
+    cin>>n;
+    ll arr[n], lf[n], rf[n];
+    memset(lf, 0, sizeof lf);
+    memset(rf, 0, sizeof rf);
+    for(ll i=0; i<n; i++)cin>>arr[i];
+    ll co=0;
+    for(ll i=1; i<n; i++){
+        if(arr[i]>arr[i-1])lf[i]=++co;
+        else { lf[i]=0; co=0; }
+        ans=max(ans, lf[i]+1);
+    }
+    co=0;
+    for(ll i=n-2; i>=0; i--){
+        if(arr[i]<arr[i+1])rf[i]=++co;
+        else { rf[i]=0; co=0; }
+    }
+    for(ll i=1; i<n-1; i++){
+        if(arr[i-1]<arr[i+1]){
+            ans=max(ans, lf[i-1]+rf[i+1]+2 );
+        }
+    }
+    cout<<ans;
 }
 int main()
 {
     IOS
     ll test=1;
-    cin>>test;
-   //cout<<test<<endl;
+    //cin>>test;
     while(test--)fun();
     return 0;
 }

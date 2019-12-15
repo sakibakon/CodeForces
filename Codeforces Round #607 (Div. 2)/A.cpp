@@ -21,6 +21,29 @@ ll big_mod(ll b, ll p, ll m); ///return (b^p)%m;
 ll mod_string_number(string str, ll mod_num); ///return str%mod_num;
 void fun()
 {
+    string s;
+    cin>>s;
+    ll ln=s.size();
+    string s1;
+
+    if(ln >=2){
+        s1=s.substr(ln-2, 2);
+        //cout<<s1<<endl;
+        if(s1=="po"){cout<<"FILIPINO"<<endl;
+        return;
+        }
+    }
+    if(ln >=4 ){
+        s1=s.substr(ln-4, 4);
+        if(s1=="desu" || s1== "masu"){cout<<"JAPANESE"<<endl;
+        return;}
+    }
+    if(ln >=5 ){
+        s1=s.substr(ln-5, 5);
+        if(s1=="mnida"){cout<<"KOREAN"<<endl;
+        return;
+        }
+    }
 
     return;
 }
@@ -29,7 +52,6 @@ int main()
     IOS
     ll test=1;
     cin>>test;
-   //cout<<test<<endl;
     while(test--)fun();
     return 0;
 }

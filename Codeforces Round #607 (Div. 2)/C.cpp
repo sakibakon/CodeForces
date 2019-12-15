@@ -29,7 +29,6 @@ int main()
     IOS
     ll test=1;
     cin>>test;
-   //cout<<test<<endl;
     while(test--)fun();
     return 0;
 }

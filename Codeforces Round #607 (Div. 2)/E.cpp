@@ -1,6 +1,5 @@
 /*==============================================*\
-ID:          sakibakon
-
+ID     : sakibakon
 Name   : Md. Abu Sakib
 Study  : CSTE, NSTU
 Address: Gazipur, Dhaka, Bangladesh
@@ -29,8 +28,32 @@ int main()
     IOS
     ll test=1;
     cin>>test;
-   //cout<<test<<endl;
-    while(test--)fun();
+    while(test--){
+        string s;
+        cin>>s;
+        ll ln=s.size();
+        string s1;
+
+        if(ln >=2){
+            s1=s.substr(ln-2, 2);
+            //cout<<s1<<endl;
+            if(s1=="po"){cout<<"FILIPINO"<<endl;
+            continue;
+            }
+        }
+        if(ln >=4 ){
+            s1=s.substr(ln-4, 4);
+            if(s1=="desu" || s1== "masu"){cout<<"JAPANESE"<<endl;
+            continue;}
+        }
+        if(ln >=5 ){
+            s1=s.substr(ln-5, 5);
+            if(s1=="mnida"){cout<<"KOREAN"<<endl;
+            continue;
+            }
+        }
+
+    }
     return 0;
 }
 

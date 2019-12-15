@@ -21,6 +21,31 @@ ll big_mod(ll b, ll p, ll m); ///return (b^p)%m;
 ll mod_string_number(string str, ll mod_num); ///return str%mod_num;
 void fun()
 {
+    string s1, s2;
+    ll a1[28]={0}, a2[28]={0};
+    cin>>s1>>s2;
+    for(ll i=0; i<s1.size(); i++){
+        a1[s1[i]-'A']++;
+    }
+    ll po=0, sw=0;
+    char ch=s1[0];
+    for(ll i=0; i<s1.size(); i++){
+        while(a1[po]==0)po++;
+        if(s1[i]>po+'A'){
+            sw=i;
+            ch=po+'A';
+            for(ll j=s1.size()-1; j>=0; j--){
+                if(s1[j]==ch){
+                    swap(s1[i], s1[j]);
+                }
+            }
+            break;
+        }
+        a1[po]--;
+    }
+    ll fl=2;
+   if(s1<s2)cout<<s1<<endl;
+   else cout<<"---"<<endl;
 
     return;
 }
@@ -29,7 +54,6 @@ int main()
     IOS
     ll test=1;
     cin>>test;
-   //cout<<test<<endl;
     while(test--)fun();
     return 0;
 }

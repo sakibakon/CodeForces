@@ -20,7 +20,40 @@ ll big_mod(ll b, ll p, ll m); ///return (b^p)%m;
 ll mod_string_number(string str, ll mod_num); ///return str%mod_num;
 void fun()
 {
-
+    ll n, m, a;
+    stack<ll>nn, mm, tm;
+    cin>>n>>m;
+    ll an[n], am[m];
+    bool arr[n+5];
+    memset(arr, false,  sizeof arr);
+    for(ll i=0; i<n; i++){
+        cin>>an[i];
+    }
+    for(ll i=n-1; i>=0; i--){
+        nn.push( an[i] );
+    }
+    for(ll i=0; i<m; i++){
+        cin>>am[i];
+    }
+    ll sum=0;
+    for(ll i=0; i<m; i++){
+        if(arr[ am[i] ]==true){
+                sum+=1;
+                if(!tm.empty())tm.pop();
+        }
+        else{
+            ll co=0;
+            while(!nn.empty()){
+                ll cc=nn.top();
+                nn.pop();
+                arr[cc]=true;
+                if(am[i]==cc)break;
+                tm.push(cc);
+            }
+            sum+=(2*tm.size())+1;
+        }
+    }
+    cout<<sum<<endl;
     return;
 }
 int main()

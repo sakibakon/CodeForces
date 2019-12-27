@@ -1,18 +1,7 @@
-/*==============================================*\
-ID     : Abu_Sakib
-Name   : Md. Abu Sakib
-Study  : CSTE, NSTU
-Address: Gazipur, Dhaka, Bangladesh
-Mail   : sakibakon1@gmail.com
-FB     : Solaiman Rizbi Sakib
-\*===============================================*/
 #include <bits/stdc++.h>
 #define ll long long int
 #define pb push_back
 #define IOS ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
-#define pi acos(-1)
-#define N 100050
-#define mod 1000000007
 using namespace std;
 ll super_max=9000000000000000000;
 ll poww(ll base, ll power_number );///return (base ^ power_number);
@@ -20,6 +9,46 @@ ll big_mod(ll b, ll p, ll m); ///return (b^p)%m;
 ll mod_string_number(string str, ll mod_num); ///return str%mod_num;
 void fun()
 {
+    ll n, s;
+    cin>>n>>s;
+    ll t_arr[n+1], maxx=0, in=0, pr=0;
+    ll summm=0;
+    for(ll i=1; i<=n; i++){
+            cin>>t_arr[i];
+            summm+=t_arr[i];
+    }
+    if(summm<=s){
+        cout<<0<<endl;
+        return;
+    }
+    if(t_arr[1]>s && t_arr[2]>s){
+        cout<<1<<endl;
+        return;
+    }
+    summm=0; maxx=0; in=1, pr=1;
+    for(ll i=1; i<=n; i++){
+        summm+=t_arr[i];
+        if(t_arr[i]>maxx){
+            maxx=t_arr[i];
+            pr=in;
+            in=i;
+        }
+        if(summm-maxx==s){
+            cout<<in<<endl;
+            return;
+        }
+        if(summm-maxx>s){
+            if(maxx==t_arr[i]){
+                cout<<pr<<endl;
+                return;
+            }
+            else{
+                cout<<in<<endl;
+                return;
+            }
+        }
+    }
+    cout<<in<<endl;
 
     return;
 }

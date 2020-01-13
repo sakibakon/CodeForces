@@ -18,10 +18,24 @@ ll super_max=9000000000000000000;
 ll poww(ll base, ll power_number );///return (base ^ power_number);
 ll big_mod(ll b, ll p, ll m); ///return (b^p)%m;
 ll mod_string_number(string str, ll mod_num); ///return str%mod_num;
-void fun()
+ll n, arr[100], co;
+bool flag[100];
+void fun(ll inx)
 {
-
-    return;
+    if(inx==n){///print
+        //for(ll i=0; i<n; i++)cout<<arr[i];
+        //cout<<endl;
+        co++;
+        return;
+    }
+    for(ll i=0; i<n; i++){
+        if(flag[i]==false){
+            flag[i]=true;
+            arr[inx]=i;
+            fun(inx+1);
+            flag[i]=false;
+        }
+    }
 }
 int main()
 {
@@ -30,7 +44,12 @@ int main()
     cin>>test;
    //cout<<test<<endl;
     while(test--){
-        fun();
+        cin>>n;
+        co=0;
+        memset(flag, false, sizeof flag);
+        memset(arr, 0, sizeof arr);
+        fun(0);
+        cout<<"count = "<<co<<endl;
     }
     return 0;
 }
